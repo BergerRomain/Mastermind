@@ -1,10 +1,14 @@
 package metier;
 
-public class Indices extends Joueur
+import donnees.*;
+
+public class Indices extends Menu
 {	
 	public Indices()
 	{
-		System.out.println("Il vous reste "+(count-1)+" essaies");
-		count--;
+		if(count == 0)
+		{
+			System.out.println("Vous avez epuisez tous vos essais,\nMerci d'avoir jouer");
+		}
 	}
 }

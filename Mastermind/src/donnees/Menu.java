@@ -9,8 +9,6 @@ public class Menu
 	
 	public Menu()
 	{
-		System.out.println("Bienvenue sur le Mastermind");
-		System.out.println("Les chiffres entre 0 et 6 (inclus) correspondent aux 7 couleurs du jeu");
 		Metier M = new Metier();
 	}
 }

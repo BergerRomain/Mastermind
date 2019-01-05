@@ -1,9 +1,9 @@
 package metier;
 
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
+import donnees.Menu;
 
-public class Metier 
+public class Metier
 {
 	Scanner sc = new Scanner (System.in);
 	final int NB_CHIFFRES = 4;
@@ -13,10 +13,10 @@ public class Metier
 	protected Integer count = new Integer(10);
 	protected Integer[] Saisie = new Integer[NB_CHIFFRES];
 	protected Integer[] solution = new Integer[NB_CHIFFRES];
-	public boolean bool = true;
 	private boolean victoire = false;
     private static final char Vrai = 'V';
     private static final char Faux = 'F';
+    int menu = Menu.menu;
 	
 	public Metier()
 	{
@@ -30,20 +30,20 @@ public class Metier
 		    count = new Integer(count.intValue() - 1);
 			System.out.println("Il vous reste "+(count)+" essaies");
 			fin();
-	    }	    
+	    }
 	}
 	
 	public void solution()
 	{
         for(int i=0 ; i<NB_CHIFFRES ; i++) 
             solution[i] = r.nextInt(MAX+1);
-        if(bool)
+		if(menu == 2)
         	System.out.println("Solution: "+solution[0]+":"+solution[1]+":"+solution[2]+":"+solution[3]);
 	}
 	
 	public void saisie()
 	{
-	    for(int i=0 ; i<NB_CHIFFRES ; i++) 
+	    for(int i=0 ; i<NB_CHIFFRES ; i++)
 	    {
 		    Saisie[i] = sc.nextInt();
 		    while(Saisie[i] < 0 || Saisie[i] > 6)
@@ -68,11 +68,9 @@ public class Metier
 	
 	public void fin()
 	{
-		if(count == 0)
+		if(count == 0 && !victoire)
 			System.out.println("Vous avez epuisez tous vos essais.\nMerci d'avoir jouer");
 		else if(count < ESSAIE && victoire)
-		{
 			System.out.println("Vous avez gagnez en seulement "+(ESSAIE-count)+" essaies, bravo");
-		}
 	}
 }
